@@ -20,7 +20,7 @@ function afficher(json){
         window.fetch("https://api.imgur.com/3/gallery/hot/viral/0.json").then(function(response) {
             return response.json();
           }).then(function(res) {
-              console.log(data)
+              console.log(res)
             afficher(res.data);
           }).catch(function(err) {
             console.log(err);
