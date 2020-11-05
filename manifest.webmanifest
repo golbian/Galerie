@@ -1,12 +1,14 @@
-{"name": "Galerie PWA","icons": [
-    {"src": "img/icon.png","sizes": "72x72","type": "image/png"},
-    {"src": "img/icon.png","sizes": "96x96","type": "image/png"},
-    {"src": "img/icon.png","sizes": "120x120","type": "image/png"},
-    {"src": "img/icon.png","sizes": "144x144","type": "image/png"},
-    {"src": "img/icon.png","sizes": "168x168","type": "image/png"},
-    {"src": "img/icon.png","sizes": "192x192","type": "image/png"},
-    {"src": "img/icon.png","sizes": "216x216","type": "image/png"},
-    {"src": "img/icon.png","sizes": "230x230","type": "image/png"},
-    {"src": "img/icon.png","sizes": "512x512","type": "image/png"}
+{"name": "Galerie PWA",
+    "scope":"https://lucid-bhabha-9f48ff.netlify.app/",
+    "icons": [
+        {"src": "img/icon.svg","sizes": "72x72"},
+        {"src": "img/icon.svg","sizes": "96x96"},
+        {"src": "img/icon.svg","sizes": "120x120"},
+        {"src": "img/icon.svg","sizes": "144x144"},
+        {"src": "img/icon.svg","sizes": "168x168"},
+        {"src": "img/icon.svg","sizes": "192x192"},
+        {"src": "img/icon.svg","sizes": "216x216"},
+        {"src": "img/icon.svg","sizes": "230x230"},
+        {"src": "img/icon.svg","sizes": "512x512"}
     ]
 }
