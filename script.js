@@ -24,10 +24,9 @@ function afficher(json){
             console.log(err);
           });
 
-        fetch("./liste.json").then(data => {
+        fetch("liste.json").then(data => {
+            console.log(data)
             afficher(data)
         }).catch(err => {
             console.log(err)
-        }).finally(()=> {
-            console.log('c pas trop tôt')
         })
