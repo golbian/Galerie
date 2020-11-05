@@ -7,9 +7,9 @@ function reduireArray(array, size) {
 
 const dateTimeFormat = Intl.DateTimeFormat("fr");
 function afficher(json){
-    const repos = json.map(j => ({name: j.title,description: j.topic || "",link: j.link, datetime: j.datetime}));
-    console.log(json)
-    const selections = reduireArray(repos, 3);
+    
+    const selections = reduireArray(json, 3);
+    console.log(selections)
     let html = "";selections.forEach(selection => {
         console.log(selection)
         html += '<div class="columns">';
@@ -23,7 +23,11 @@ function afficher(json){
         window.fetch("https://api.imgur.com/3/gallery/hot/viral/0.json").then(function(response) {
             return response.json();
           }).then(function(data) {
-              const json = data;
+              const json = {
+                  name : data.title,
+                  datetime: data.datetime,
+                  link: data.link
+              };
               afficher(json);
             console.log(data);
           }).catch(function(err) {
