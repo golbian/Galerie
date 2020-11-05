@@ -16,11 +16,12 @@ function afficher(json){
             html += "</div>";});document.querySelector(".container").innerHTML = html;
         }
 
-        const json = [
-            {name: "Image 1",created_at: "2020-09-19T10:05:12Z",updated_at: "2020-10-09T12:09:56Z",},
-            {name: "Image 2",    created_at: "2014-06-10T11:41:39Z",updated_at: "2014-06-10T11:43:11Z",},
-            {name: "Image 3",created_at: "2014-06-10T11:41:39Z",updated_at: "2018-12-11T14:07:57Z",description: "AngularJS directive for AsciiDoctor",},
-            {name: "Image 4",        description: "AngularJS directive for AsciiDoctor",created_at: "2014-06-10T11:41:39Z",updated_at: "2014-11-25T16:57:27Z",},
-            {name: "Image 5",description: "CLI tool for Angular",created_at: "2018-10-08T10:58:58Z",updated_at: "2018-10-25T14:58:47Z",}
-        ];
-        document.addEventListener("DOMContentLoaded", function() {afficher(json)});
+        window.fetch("https://api.imgur.com/3/gallery/hot/viral/0.json").then(function(response) {
+            return response.json();
+          }).then(function(data) {
+              const json = data
+              document.addEventListener("DOMContentLoaded", function() {afficher(json)});
+            console.log(data);
+          }).catch(function(err) {
+            console.log(err);
+          });
