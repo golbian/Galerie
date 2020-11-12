@@ -1,9 +1,10 @@
 if('serviceWorker'in navigator) {
-    navigator.serviceWorker.getRegistrations().then(registrations=> {
-        for (let registration of registrations){
-            registrations.unregister();
-        }
-    }
-}
+    navigator.serviceWorker.register("/sw.js")
+    .then((reg) => {
+        console.log("votre service worker a été enregistré!");
+    })
+    .catch((error) => {
+        console.error(error);
+    })
 
 self.addEventListener('fetch',event=>{    event.RespondWith(newResponse('PWA!!!!'));});
