@@ -40,8 +40,7 @@ function afficher(json){
                 .catch((err) => {
                   console.log(err);
                 });
-            } else {
-              console.log("ui")
+            } else if (navigator.onLine == 0) {
               fetchData = localforage.getItem("data");
             }
           
