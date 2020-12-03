@@ -8,12 +8,53 @@ function afficher(json){
         html += '<div class="columns">';
         for(const repo of json) {
           if(repo.images){
-            html += `<div class="column"><div class="card"><div class="card-content"><div class="media"><div class="media-left"><figure class="image"><img src="${repo.images[0].link}" alt="Placeholder image"/></figure></div><div class="media-content"></div></div>Dernière mise à jour: <time datetime="${repo.datetime}">${repo.datetime}</time><p class="title">${repo.title}</p><br><button class='btn favori-btn btn-success'>+ Ajoutez aux favoris</button></div></div></div>`;
-            html += "</div>";
+            if (repo.images[0].type !== 'video/mp4'){
+              let colDiv = document.createElement("div");
+              let cardDiv = document.createElement("div");
+              let img = document.createElement("img");
+              let cardBodyDiv = document.createElement("div");
+              let h5 = document.createElement("h5");
+              let a = document.createElement("a");
+      
+              colDiv.className = "col col-sm-4";
+      
+              cardDiv.className = "card";
+              cardDiv.style = "width: 18rem;";
+              
+              img.src = src.images[0].link;
+              img.className = "card-img-top";
+      
+              cardBodyDiv.className = "card-body";
+      
+              h5.className = "card-title";
+              h5.textContent = src.title;
+      
+              a.className = "btn btn-primary";
+              a.textContent = "Ajouter en favori";   
+              a.addEventListener('click', function() {
+                  if(this.className == "btn btn-primary") {
+                      this.className = "btn btn-secondary";
+                      this.textContent = "Favori";
+                  } else {
+                      this.className = "btn btn-primary";
+                      this.textContent = "Ajouter en favori";
+                  }
+              });
+      
+              colDiv.appendChild(cardDiv);
+              cardDiv.appendChild(img);
+              cardDiv.appendChild(cardBodyDiv);
+              cardBodyDiv.appendChild(h5);
+              cardBodyDiv.appendChild(a);
+      
+              imageBox.appendChild(colDiv);
+              numImage++;
+                  
+              };
+      
+              isLoad = true;
           }
         }
-
-        document.querySelector(".container").innerHTML = html;
       }
 
         
