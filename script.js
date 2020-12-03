@@ -1,5 +1,5 @@
 var html = ""
-var imageBox = document.getElementsByClassName("container")
+var imageBox = document.getElementById("image_box")
 
 const dateTimeFormat = Intl.DateTimeFormat("fr");
 function afficher(json){
