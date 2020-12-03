@@ -39,7 +39,6 @@ function afficher(json){
               cardDiv.appendChild(cardBodyDiv);
               cardBodyDiv.appendChild(h5);
               cardBodyDiv.appendChild(a);
-      
               container.appendChild(colDiv);
           }
         }
