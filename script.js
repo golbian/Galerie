@@ -19,13 +19,38 @@ function afficher(json){
             document.querySelector(".container").innerHTML = html;
         }
 
-        fetch("https://api.imgur.com/3/gallery/hot/viral/0.json").then(function(response) {
-            return response.json();
-          }).then(function(res) {
-              console.log(res)
-            afficher(res.data);
-          }).catch(function(err) {
-            console.log(err);
+        
+
+          document.addEventListener("DOMContentLoaded", function () {
+            if (navigator.onLine) {
+              document.querySelector(".notification").setAttribute("hidden", "");
+            }
+          
+            window.addEventListener("online", () => {
+              document.querySelector(".notification").setAttribute("hidden", "");
+            });
+            window.addEventListener("offline", () => {
+              document.querySelector(".notification").removeAttribute("hidden");
+            });
+          
+            let fetchData;
+            if (navigator.onLine) {
+              fetch("https://api.imgur.com/3/gallery/hot/viral/0.json")
+                .then((response) =>{
+                  return response.json();
+                })
+                .then((data) => {
+                  fetchData = localforage.setItem("data", data);
+                afficher(data);
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
+            } else {
+              fetchData = localforage.getItem("data");
+            }
+          
+            fetchData.then((json) => afficher(json));
           });
 
         // fetch("liste.json").then(function(response) {
