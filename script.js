@@ -30,10 +30,10 @@ function afficher(json){
               document.querySelector(".notification").removeAttribute("hidden");
             });
 
-            var btn = document.querySelector(".favori-btn");
-            btn.addEventListener('click', event => {
+            var btn = document.getElementsByClassName(".favori-btn");
+            btn.onclick = event => {
               console.log(event)
-            });
+            };
           
             let fetchData;
             if (navigator.onLine) {
