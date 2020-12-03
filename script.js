@@ -31,7 +31,8 @@ function afficher(json){
             });
 
             var btn = document.getElementsByClassName(".favori-btn");
-            btn.onclick = event => {
+            console.log(btn)
+            btn.onclick = function(event) {
               console.log(event)
             };
           
