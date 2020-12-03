@@ -85,7 +85,6 @@ function afficher(json){
           });
 
           var btn = document.getElementsByClassName(".favori-btn");
-          console.log(btn)
           btn.onclick = function(event) {
             console.log(event)
           };
