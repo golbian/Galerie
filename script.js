@@ -8,7 +8,6 @@ function afficher(json){
         html += '<div class="columns">';
         for(const repo of json) {
           if(repo.images){
-            if (repo.images[0].type !== 'video/mp4'){
               let colDiv = document.createElement("div");
               let cardDiv = document.createElement("div");
               let img = document.createElement("img");
@@ -48,11 +47,6 @@ function afficher(json){
               cardBodyDiv.appendChild(a);
       
               imageBox.appendChild(colDiv);
-              numImage++;
-                  
-              };
-      
-              isLoad = true;
           }
         }
       }
