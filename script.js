@@ -1,4 +1,4 @@
-let html = "";
+var container = getElementById("container")
 
 const dateTimeFormat = Intl.DateTimeFormat("fr");
 function afficher(json){
@@ -40,7 +40,7 @@ function afficher(json){
               cardBodyDiv.appendChild(h5);
               cardBodyDiv.appendChild(a);
       
-              imageBox.appendChild(colDiv);
+              container.appendChild(colDiv);
           }
         }
       }
