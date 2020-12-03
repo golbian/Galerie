@@ -30,7 +30,7 @@ function afficher(json){
               document.querySelector(".notification").removeAttribute("hidden");
             });
 
-            var btn = document.querySelector(".button");
+            var btn = document.querySelector(".favori-btn");
             btn.addEventListener('click', event => {
               console.log(event)
             });
