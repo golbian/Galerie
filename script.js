@@ -21,13 +21,13 @@ function afficher(json){
               cardDiv.className = "card";
               cardDiv.style = "width: 18rem;";
               
-              img.src = src.images[0].link;
+              img.src = repo.images[0].link;
               img.className = "card-img-top";
       
               cardBodyDiv.className = "card-body";
       
               h5.className = "card-title";
-              h5.textContent = src.title;
+              h5.textContent = repo.title;
       
               a.className = "btn btn-primary";
               a.textContent = "Ajouter en favori";   
