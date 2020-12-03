@@ -1,9 +1,3 @@
-const runtime = require('serviceworker-webpack-plugin/lib/runtime');
-
-if ('serviceWorker' in navigator) {
-  const registration = runtime.register();
-}
-
 // function reduireArray(array, size) {
 //     if (array.length <= size) {
 //         return [array];
