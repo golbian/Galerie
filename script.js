@@ -2,12 +2,13 @@ let html = "";
 
 const dateTimeFormat = Intl.DateTimeFormat("fr");
 function afficher(json){
-        console.log(typeof json)
-        // json = JSON.parse(json);
+        if(typeof json !== object) {
+          json = JSON.parse(json);
+        }
         html += '<div class="columns">';
         for(const repo of json) {
           if(repo.images){
-            html += `<div class="column"><div class="card"><div class="card-content"><div class="media"><div class="media-left"><figure class="image"><img src="${repo.images[0].link}" alt="Placeholder image"/></figure></div><div class="media-content"></div></div>Dernière mise à jour: <time datetime="${repo.datetime}">${repo.datetime}</time><p class="title">${repo.title}</p><br><button class='btn btn-success'>+ Ajoutez aux favoris</button></div></div></div>`;
+            html += `<div class="column"><div class="card"><div class="card-content"><div class="media"><div class="media-left"><figure class="image"><img src="${repo.images[0].link}" alt="Placeholder image"/></figure></div><div class="media-content"></div></div>Dernière mise à jour: <time datetime="${repo.datetime}">${repo.datetime}</time><p class="title">${repo.title}</p><br><button class='btn favori-btn btn-success'>+ Ajoutez aux favoris</button></div></div></div>`;
             html += "</div>";
           }
         }
@@ -28,6 +29,11 @@ function afficher(json){
             window.addEventListener("offline", () => {
               document.querySelector(".notification").removeAttribute("hidden");
             });
+
+            var btn = document.querySelector(".button");
+            btn.addEventListener('click', event => {
+              console.log(event)
+            });
           
             let fetchData;
             if (navigator.onLine) {
@@ -45,7 +51,6 @@ function afficher(json){
             } else if (navigator.onLine == 0) {
               fetchData = localforage.getItem("data");
             }
-          
             fetchData.then((json) => afficher(json));
           });
 
