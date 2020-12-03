@@ -29,12 +29,6 @@ function afficher(json){
             window.addEventListener("offline", () => {
               document.querySelector(".notification").removeAttribute("hidden");
             });
-
-            var btn = document.getElementsByClassName(".favori-btn");
-            console.log(btn)
-            btn.onclick = function(event) {
-              console.log(event)
-            };
           
             let fetchData;
             if (navigator.onLine) {
@@ -54,6 +48,12 @@ function afficher(json){
             }
             fetchData.then((json) => afficher(json));
           });
+
+          var btn = document.getElementsByClassName(".favori-btn");
+          console.log(btn)
+          btn.onclick = function(event) {
+            console.log(event)
+          };
 
         // fetch("liste.json").then(function(response) {
         //     return response.json();
