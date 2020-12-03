@@ -84,11 +84,6 @@ function afficher(json){
             fetchData.then((json) => afficher(json));
           });
 
-          var btn = document.getElementsByClassName(".favori-btn");
-          btn.onclick = function(event) {
-            console.log(event)
-          };
-
         // fetch("liste.json").then(function(response) {
         //     return response.json();
         //   }).then(data => {
