@@ -1,4 +1,4 @@
-var imageBox = getElementById("image_box")
+var imageBox = document.getElementById("image_box")
 
 const dateTimeFormat = Intl.DateTimeFormat("fr");
 function afficher(json){
