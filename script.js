@@ -39,9 +39,9 @@ function afficher(json){
                 .then((response) =>{
                   return response.json();
                 })
-                .then((data) => {
-                  fetchData = localforage.setItem("data", data);
-                afficher(data);
+                .then((res) => {
+                  fetchData = localforage.setItem("data", res.data);
+                afficher(res.data);
                 })
                 .catch((err) => {
                   console.log(err);
