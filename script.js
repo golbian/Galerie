@@ -1,10 +1,3 @@
-// function reduireArray(array, size) {
-//     if (array.length <= size) {
-//         return [array];
-//     }
-//     return [array.slice(0, size), ...reduireArray(array.slice(size), size)];
-// }
-
 let html = "";
 
 const dateTimeFormat = Intl.DateTimeFormat("fr");
@@ -16,8 +9,9 @@ function afficher(json){
             html += "</div>";
           }
         }
-            document.querySelector(".container").innerHTML = html;
-        }
+
+        document.querySelector(".container").innerHTML = html;
+      }
 
         
 
@@ -47,6 +41,7 @@ function afficher(json){
                   console.log(err);
                 });
             } else {
+              console.log("ui")
               fetchData = localforage.getItem("data");
             }
           
