@@ -1,4 +1,4 @@
-var container = getElementById("container")
+var imageBox = getElementById("image_box")
 
 const dateTimeFormat = Intl.DateTimeFormat("fr");
 function afficher(json){
@@ -39,7 +39,7 @@ function afficher(json){
               cardDiv.appendChild(cardBodyDiv);
               cardBodyDiv.appendChild(h5);
               cardBodyDiv.appendChild(a);
-              container.appendChild(colDiv);
+              imageBox.appendChild(colDiv);
           }
         }
       }
