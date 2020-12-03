@@ -30,14 +30,8 @@ function afficher(json){
       
               a.className = "btn btn-primary";
               a.textContent = "Ajouter en favori";   
-              a.addEventListener('click', function() {
-                  if(this.className == "btn btn-primary") {
-                      this.className = "btn btn-secondary";
-                      this.textContent = "Favori";
-                  } else {
-                      this.className = "btn btn-primary";
-                      this.textContent = "Ajouter en favori";
-                  }
+              a.addEventListener('click', function(e) {
+                  console.log(e)
               });
       
               colDiv.appendChild(cardDiv);

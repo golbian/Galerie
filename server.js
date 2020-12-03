@@ -3,6 +3,11 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const app = express();
 
+var corsOptions = {
+  origin: "http://localhost:8081"
+};
+app.use(cors(corsOptions));
+
 mongoose
   .connect("mongodb://localhost:27017/galerie", {
     useNewUrlParser: true,
