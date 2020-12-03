@@ -1,3 +1,4 @@
+var html = ""
 var imageBox = document.getElementById("image_box")
 
 const dateTimeFormat = Intl.DateTimeFormat("fr");
