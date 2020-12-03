@@ -2,6 +2,7 @@ let html = "";
 
 const dateTimeFormat = Intl.DateTimeFormat("fr");
 function afficher(json){
+        json = JSON.parse(json);
         html += '<div class="columns">';
         for(const repo of json) {
           if(repo.images){
