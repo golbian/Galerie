@@ -37,7 +37,6 @@ function afficher(json){
                   var element = e.target
                   var favoriToggle = element.classList.toggle("favori")
                   var parent = element.parentNode
-                  console.log(parent)
                   var data = {
                     src: parent.previousElementSibling.currentSrc,
                     title: parent.firstChild.textContent,
@@ -49,9 +48,11 @@ function afficher(json){
                   SubscribeService.updateSubscribe(data).then(response => {
                     console.log(response)
                   }).catch(err => {
-                    SubscribeService.createSubscribe(data).then(response => {
-                      console.log(response)
-                    })
+                    if(err) {
+                      SubscribeService.createSubscribe(data).then(response => {
+                        console.log(response)
+                      })
+                    }
                   })
               });
       
