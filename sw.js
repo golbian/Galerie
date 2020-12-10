@@ -27,8 +27,8 @@ self.addEventListener("activate", e => {
 
 self.addEventListener("fetch", e => {console.log(e.request.url);});
 
-self.addEventListener("fetch", event => {
-  const url = event.request.url;
+// self.addEventListener("fetch", event => {
+//   const url = event.request.url;
 
   // if (url.indexOf("https://lucid-bhabha-9f48ff.netlify.app/liste.json") === 0) {
   //   event.respondWith(
@@ -67,4 +67,4 @@ self.addEventListener("fetch", event => {
   //       .then(response => response || fetch(event.request))
   //   );
   // }
-});
+// });
