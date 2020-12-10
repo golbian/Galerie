@@ -40,7 +40,7 @@ function afficher(json){
                   console.log(parent)
                   var data = {
                     src: parent.previousElementSibling.currentSrc,
-                    title: parent.firstChild().textContent,
+                    title: parent.firstChild.textContent,
                     favori: favoriToggle,
                   }
 
