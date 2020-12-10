@@ -46,8 +46,8 @@ function afficher(json){
 
                   data = JSON.stringify(data);
 
-                  SubscribeService.getSubscribe(data.id).then(res => {
-                    SubscribeService.updateSubscribe(data.id, data).then(response => {
+                  SubscribeService.getSubscribe(repo.id).then(res => {
+                    SubscribeService.updateSubscribe(repo.id, data).then(response => {
                       console.log(response)
                     })
                   }).catch(err => {
