@@ -28,7 +28,7 @@ class SubscribeServices {
   }
 
   updateSubscribe(id, data) {
-    return fetch(`http://localhost:8081/api/subscribe${id}`,{
+    return fetch(`http://localhost:8081/api/subscribe/${id}`,{
       method: 'put',
       headers: {
         'Accept': 'application/json',
