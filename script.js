@@ -1,8 +1,22 @@
 import SubscribeService from "./subscribe.service.js";
 
 var html = ""
+var register;
 
-var registration = navigator.serviceWorker;
+
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker
+      .register("/sw.js")
+      .then((reg) => {
+        register = reg
+        console.log("votre service worker a été enregistré!");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  } else {
+    console.warn("Service workers are not supported.");
+  }
 
 const dateTimeFormat = Intl.DateTimeFormat("fr");
 function afficher(json){
@@ -80,7 +94,6 @@ function afficher(json){
           }
         }
       }
-
 
           document.addEventListener("DOMContentLoaded", function () {
             if (navigator.onLine) {

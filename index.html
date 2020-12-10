@@ -14,6 +14,14 @@
                   navigator.serviceWorker
                     .register("/sw.js")
                     .then((reg) => {
+                      document.getElementsByClassName('btn').addEventListener('click', (event) => {
+                if(reg.sync) {
+                    reg.sync.register('background-sync')
+                    .catch(function(err) {
+                        return err;
+                    })
+                }
+            })
                       console.log("votre service worker a été enregistré!");
                     })
                     .catch((error) => {
