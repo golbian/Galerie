@@ -43,6 +43,8 @@ function afficher(json){
                     favori: favoriToggle,
                   }
 
+                  data = JSON.stringify(data);
+
                 SubscribeService.createSubscribe(data).then(response => {
                   console.log(response)
                 })
@@ -73,7 +75,7 @@ function afficher(json){
             console.log('online?', navigator.onLine)
             if (navigator.onLine === true) {
               fetch("https://api.imgur.com/3/gallery/hot/viral/0.json")
-                .then((response) =>{
+                .then((response) => {
                   return response.json();
                 })
                 .then((res) => {

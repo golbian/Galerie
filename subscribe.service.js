@@ -10,7 +10,6 @@ class SubscribeServices {
   }
 
   createSubscribe(data) {
-    data = JSON.stringify(data)
     return fetch("http://localhost:8081/api/subscribe",{
       method: 'post',
       body: data,
