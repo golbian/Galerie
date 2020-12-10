@@ -59,21 +59,20 @@ function afficher(json){
               document.querySelector(".notification").removeAttribute("hidden");
             });
           
-            let fetchData;
             if (navigator.onLine) {
               fetch("https://api.imgur.com/3/gallery/hot/viral/0.json")
                 .then((response) =>{
                   return response.json();
                 })
                 .then((res) => {
-                  fetchData = localforage.setItem("data", res.data);
+                  var fetchData = localforage.setItem("data", res.data);
                 afficher(res.data);
                 })
                 .catch((err) => {
                   console.log(err);
                 });
             } else if (navigator.onLine == 0) {
-              fetchData = localforage.getItem("data");
+              var fetchData = localforage.getItem("data");
             }
             fetchData.then((json) => afficher(json));
           });
