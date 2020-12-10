@@ -71,7 +71,7 @@ exports.update = (req, res) => {
       });
     }
   
-    Subscribe.findAndUpdate({title: req.body.title}, req.body, { useFindAndModify: false })
+    Subscribe.findOneAndUpdate({title: req.body.title}, req.body, { useFindAndModify: false })
       .then(data => {
         if (!data) {
           res.status(404).send({
