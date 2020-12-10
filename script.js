@@ -2,15 +2,16 @@ import SubscribeService from "./subscribe.service.js";
 
 var html = ""
 
-// if(navigator.serviceWorker) {
-//   navigator.serviceWorker.register('./serviceworker.js')
-//   .then(function() {
-//       return navigator.serviceWorker.ready
-//   })
-//   .then(function(registration) {
+
 
 const dateTimeFormat = Intl.DateTimeFormat("fr");
 function afficher(json){
+  if(navigator.serviceWorker) {
+    navigator.serviceWorker.register('./serviceworker.js')
+    .then(function() {
+        return navigator.serviceWorker.ready
+    })
+    .then(function(registration) {
   var imageBox = document.getElementById("container")
         if(typeof json !== "object") {
           json = JSON.parse(json);
@@ -75,6 +76,8 @@ function afficher(json){
                   })
                 }
               });
+              
+
       
               colDiv.appendChild(cardDiv);
               cardDiv.appendChild(img);
@@ -82,12 +85,12 @@ function afficher(json){
               cardBodyDiv.appendChild(h5);
               cardBodyDiv.appendChild(a);
               imageBox.appendChild(colDiv);
+            }
           }
-        }
+        })
       }
-
-  //   })
-  // }
+    }
+      
 
           document.addEventListener("DOMContentLoaded", function () {
             if (navigator.onLine) {
