@@ -61,10 +61,10 @@ function afficher(json){
             if (navigator.onLine) {
               fetch("https://api.imgur.com/3/gallery/hot/viral/0.json")
                 .then((response) =>{
-                  console.log(response)
                   return response.json();
                 })
                 .then((res) => {
+                  console.log(res)
                   fetchData = localforage.setItem("data", res.data);
                 afficher(res.data);
                 })
