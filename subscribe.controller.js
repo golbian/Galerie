@@ -50,8 +50,8 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
     const id = req.params.id;
   
-    Subscribe.findById(id)
-      .then(data => {
+    Subscribe.findById(id).exec(doc => {
+      doc.then(data => {
         if (!data)
           res.status(404).send({ message: "Not found Subscribe with id " + id });
         else res.send(data);
@@ -61,6 +61,7 @@ exports.findOne = (req, res) => {
           .status(500)
           .send({ message: "Error retrieving Subscribe with id=" + id });
       });
+    })
   };
 
 // Update a Subscribe by the id in the request
@@ -73,8 +74,8 @@ exports.update = (req, res) => {
   
     const id = req.params.id;
   
-    Subscribe.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
-      .then(data => {
+    Subscribe.findByIdAndUpdate(id, req.body, { useFindAndModify: false }).exec(doc => {
+      doc.then(data => {
         if (!data) {
           res.status(404).send({
             message: `Cannot update Subscribe with id=${id}. Maybe Subscribe was not found!`
@@ -86,6 +87,7 @@ exports.update = (req, res) => {
           message: "Error updating Subscribe with id=" + id
         });
       });
+    })
   };
 
 // Delete a Subscribe with the specified id in the request
