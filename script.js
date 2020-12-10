@@ -53,10 +53,10 @@ function afficher(json){
 
                   SubscribeService.createSubscribe(data).then(res => {
                     var local = localforage.getItem("data")
-                    const item = local.then(doc => {
-                      doc.find(element => element.title == res.title);
+                    local.then(doc => {
+                      const item = doc.find(element => element.title == res.title);
+                      console.log(item)
                     })
-                    console.log(item)
                   })
               });
       
