@@ -2,12 +2,12 @@ import SubscribeService from "./subscribe.service.js";
 
 var html = ""
 
-if(navigator.serviceWorker) {
-  navigator.serviceWorker.register('./serviceworker.js')
-  .then(function() {
-      return navigator.serviceWorker.ready
-  })
-  .then(function(registration) {
+// if(navigator.serviceWorker) {
+//   navigator.serviceWorker.register('./serviceworker.js')
+//   .then(function() {
+//       return navigator.serviceWorker.ready
+//   })
+//   .then(function(registration) {
 
 const dateTimeFormat = Intl.DateTimeFormat("fr");
 function afficher(json){
@@ -86,8 +86,8 @@ function afficher(json){
         }
       }
 
-    })
-  }
+  //   })
+  // }
 
           document.addEventListener("DOMContentLoaded", function () {
             if (navigator.onLine) {
