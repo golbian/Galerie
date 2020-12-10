@@ -45,13 +45,16 @@ function afficher(json){
 
                   data = JSON.stringify(data);
 
-                  SubscribeService.updateSubscribe(data).then(response => {
-                    console.log(response)
-                  }).catch(err => {
-                    console.log(err)
-                      SubscribeService.createSubscribe(data).then(res => {
-                        console.log(res)
-                      })
+                  // SubscribeService.updateSubscribe(data).then(response => {
+                  //   console.log(response)
+                  // }).catch(err => {
+                  //   console.log(err)
+                  // })
+
+                  SubscribeService.createSubscribe(data).then(res => {
+                    var local = localforage.getItem("data")
+                    const item = local.find(element => element.title == res.title);
+                    console.log(item)
                   })
               });
       
