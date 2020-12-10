@@ -58,21 +58,21 @@ function afficher(json){
             window.addEventListener("offline", () => {
               document.querySelector(".notification").removeAttribute("hidden");
             });
-          
+            var fetchData;
             if (navigator.onLine) {
               fetch("https://api.imgur.com/3/gallery/hot/viral/0.json")
                 .then((response) =>{
                   return response.json();
                 })
                 .then((res) => {
-                  var fetchData = localforage.setItem("data", res.data);
+                  fetchData = localforage.setItem("data", res.data);
                 afficher(res.data);
                 })
                 .catch((err) => {
                   console.log(err);
                 });
             } else if (navigator.onLine == 0) {
-              var fetchData = localforage.getItem("data");
+              fetchData = localforage.getItem("data");
             }
             fetchData.then((json) => afficher(json));
           });
