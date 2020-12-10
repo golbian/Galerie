@@ -1,11 +1,10 @@
 var html = ""
-var imageBox = document.getElementById("container")
 
 const dateTimeFormat = Intl.DateTimeFormat("fr");
 function afficher(json){
+  var imageBox = document.getElementById("container")
         if(typeof json !== "object") {
           json = JSON.parse(json);
-        }
         html += '<div class="columns">';
         for(const repo of json) {
           if(repo.images){
@@ -43,6 +42,7 @@ function afficher(json){
               imageBox.appendChild(colDiv);
           }
         }
+      }
       }
 
         
