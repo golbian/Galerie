@@ -1,4 +1,4 @@
-import subscribeService from "./subscribe.service";
+import SubscribeService from "./subscribe.service";
 
 var html = ""
 
@@ -43,7 +43,7 @@ function afficher(json){
                     favori: favoriToggle,
                   }
 
-                subscribeService.createSubscribe(data).then(response => {
+                SubscribeService.createSubscribe(data).then(response => {
                   console.log(response)
                 })
               });
