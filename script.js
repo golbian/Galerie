@@ -43,7 +43,7 @@ function afficher(json){
                     favori: favoriToggle,
                   }
 
-                  console.log(data.src)
+                  console.log(data.title)
 
                   data = JSON.stringify(data);
 
