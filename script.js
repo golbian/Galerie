@@ -1,14 +1,14 @@
 import SubscribeService from "./subscribe.service.js";
 
 var html = ""
-var register;
+var registration;
 
 
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker
       .register("/sw.js")
       .then((reg) => {
-        register = reg
+        registration = reg
         console.log("votre service worker a été enregistré!");
       })
       .catch((error) => {
