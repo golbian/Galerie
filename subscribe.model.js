@@ -1,7 +1,9 @@
 module.exports = mongoose => {
     var Schema = mongoose.Schema(
         {
-          state: Array,
+          title: String,
+          src: String,
+          favori: Boolean,
         },
         { timestamps: true }
       );

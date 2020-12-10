@@ -9,7 +9,9 @@ exports.create = (req, res) => {
     return;
   }
   const subscribe = new Subscribe({
-    state: req.body.state
+    title: req.body.title,
+    favori: req.body.favori,
+    src: req.body.src,
   });
 
   // Save Subscribe in the database

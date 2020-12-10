@@ -18,5 +18,5 @@ module.exports = app => {
     // Delete a Suscribe with id
     router.delete("/:id", suscribes.delete);
   
-    app.use('/api/suscribe', router);
+    app.use('/api/subscribe', router);
   };
