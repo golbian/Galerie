@@ -4,11 +4,11 @@ const mongoose = require("mongoose");
 const cors = require("cors")
 const app = express();
 
-var corsOptions = {
-  origin: "https:8080//lucid-bhabha-9f48ff.netlify.app"
-};
+// var corsOptions = {
+//   origin: "http://localhost:8080"
+// };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 mongoose
   .connect("mongodb://localhost:27017/galerie", {
