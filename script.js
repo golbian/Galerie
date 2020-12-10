@@ -73,6 +73,7 @@ function afficher(json){
             } else {
               fetchData = localforage.getItem("data");
             }
+            console.log(fetchData);
             fetchData.then((json) => afficher(json));
           });
 
