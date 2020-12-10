@@ -64,9 +64,8 @@ function afficher(json){
                   return response.json();
                 })
                 .then((res) => {
-                  console.log(res)
-                  fetchData = localforage.setItem("data", res.data);
-                afficher(res.data);
+                fetchData = localforage.setItem("data", res.data);
+                // afficher(res.data);
                 })
                 .catch((err) => {
                   console.log(err);
@@ -75,7 +74,10 @@ function afficher(json){
               fetchData = localforage.getItem("data");
             }
             console.log("passe ici");
-            fetchData.then((json) => afficher(json));
+            fetchData.then((json) => {
+              console.log(json)
+              afficher(json)
+            });
           });
 
         // fetch("liste.json").then(function(response) {
