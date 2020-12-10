@@ -35,8 +35,8 @@ function afficher(json){
                   var element = e.target
                   var parent = element.parentNode
                   var data = {
-                    src = parent.previousElementSibling.currentSrc,
-                    title = parent.textContent,
+                    src: parent.previousElementSibling.currentSrc,
+                    title: parent.textContent,
                   }
 
                   console.log(data)
