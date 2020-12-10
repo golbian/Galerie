@@ -50,17 +50,16 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
     const id = req.params.id;
   
-    Subscribe.findById(id).exec(doc => {
-      doc.then(data => {
-        if (!data)
-          res.status(404).send({ message: "Not found Subscribe with id " + id });
+    Subscribe.findById(id).exec((err, data) => {
+        if (!data) {
+          return res.status(404).send({ message: "Not found Subscribe with id " + id });
+        }
         else res.send(data);
-      })
-      .catch(err => {
-        res
+      if(err) {
+        return res
           .status(500)
           .send({ message: "Error retrieving Subscribe with id=" + id });
-      });
+      };
     })
   };
 
@@ -74,19 +73,17 @@ exports.update = (req, res) => {
   
     const id = req.params.id;
   
-    Subscribe.findByIdAndUpdate(id, req.body, { useFindAndModify: false }).exec(doc => {
-      doc.then(data => {
+    Subscribe.findByIdAndUpdate(id, req.body, { useFindAndModify: false }).exec((err, data) => {
         if (!data) {
-          res.status(404).send({
+          return res.status(404).send({
             message: `Cannot update Subscribe with id=${id}. Maybe Subscribe was not found!`
           });
         } else res.send({ message: "Subscribe was updated successfully." });
-      })
-      .catch(err => {
-        res.status(500).send({
+      if(err) {
+        return res.status(500).send({
           message: "Error updating Subscribe with id=" + id
         });
-      });
+      };
     })
   };
 
