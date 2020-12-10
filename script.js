@@ -61,12 +61,11 @@ function afficher(json){
             if (navigator.onLine) {
               fetch("https://api.imgur.com/3/gallery/hot/viral/0.json")
                 .then((response) =>{
-                  // fetchData = localforage.setItem("data", response.data);
                   return response.json();
                 })
                 .then((res) => {
                 fetchData = localforage.setItem("data", res.data);
-                // afficher(res.data);
+                afficher(res.data);
                 })
                 .catch((err) => {
                   console.log(err);
@@ -75,7 +74,6 @@ function afficher(json){
               fetchData = localforage.getItem("data");
             }
             fetchData.then(json => afficher(json))
-            // afficher(fetchData)
           });
 
         // fetch("liste.json").then(function(response) {
