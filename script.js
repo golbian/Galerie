@@ -56,9 +56,8 @@ function afficher(json){
             window.addEventListener("offline", () => {
               document.querySelector(".notification").removeAttribute("hidden");
             });
-
+            var fetchData;
             if (navigator.onLine) {
-              var fetchData;
               fetch("https://api.imgur.com/3/gallery/hot/viral/0.json")
                 .then((response) =>{
                   return response.json();
@@ -70,7 +69,7 @@ function afficher(json){
                 .catch((err) => {
                   console.log(err);
                 });
-            } else if (navigator.onLine == 0) {
+            } else if (navigator.onLine == false) {
               fetchData = localforage.getItem("data");
             }
             fetchData.then((json) => afficher(json));
