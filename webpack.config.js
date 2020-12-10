@@ -4,7 +4,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 const ServiceWorkerWebpackPlugin = require("serviceworker-webpack-plugin");
 
 module.exports = {
-  entry: "./script.js",
+  entry: ["./script.js", "./http-common.js", "./subscribe.service.js"],
   mode: process.env.NODE_ENV !== "production" ? "production" : "development",
   plugins: [
     new HtmlWebpackPlugin({
