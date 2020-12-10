@@ -1,4 +1,4 @@
-import SubscribeService from "./subscribe.service";
+import SubscribeService from "./subscribe.service.js";
 
 var html = ""
 
