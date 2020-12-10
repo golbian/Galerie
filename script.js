@@ -53,12 +53,6 @@ function afficher(json){
               
                 
               a.addEventListener('click', (event) => {
-                if(registration.sync) {
-                  registration.sync.register('bacground-sync')
-                  .catch(function(err) {
-                      return err;
-                  })
-
                   var element = event.target
                   var favoriToggle = element.classList.toggle("favori")
                   var parent = element.parentNode
@@ -82,7 +76,6 @@ function afficher(json){
                       })
                     }
                   })
-                }
               });
       
               colDiv.appendChild(cardDiv);
