@@ -54,7 +54,7 @@ function afficher(json){
                   SubscribeService.createSubscribe(data).then(res => {
                     var local = localforage.getItem("data")
                     local.then(doc => {
-                      const item = doc.find(element => element.title == res.title);
+                      const item = doc.find(element => element.title === data.title);
                       console.log(item)
                     })
                   })
