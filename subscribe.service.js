@@ -5,8 +5,15 @@ class SubscribeServices {
     return fetch("http://localhost:8081/api/subscribe");
   }
 
-  getSubscribe(title) {
-    return fetch(`http://localhost:8081/api/subscribe/${title}`);
+  getSubscribe(id) {
+    return fetch(`http://localhost:8081/api/subscribe/${id}`,{
+      method: 'get',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: data,
+    });
   }
 
   createSubscribe(data) {

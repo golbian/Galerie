@@ -45,16 +45,15 @@ function afficher(json){
                   }
 
                   data = JSON.stringify(data);
-                  console.log(data)
 
-                  // SubscribeService.updateSubscribe(data).then(response => {
-                  //   console.log(response)
-                  // }).catch(err => {
-                  //   console.log(err)
-                  // })
-
-                  SubscribeService.createSubscribe(data).then(res => {
-                    console.log(res)
+                  SubscribeService.getSubscribe(data.id).then(res => {
+                    SubscribeService.updateSubscribe(data.id).then(response => {
+                      console.log(response)
+                    })
+                  }).catch(err => {
+                    SubscribeService.createSubscribe(data).then(res => {
+                      console.log(res)
+                    })
                   })
               });
       
