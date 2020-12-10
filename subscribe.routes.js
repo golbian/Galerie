@@ -13,7 +13,7 @@ module.exports = app => {
     router.get("/:title", suscribes.findOne);
   
     // Update a Suscribe with id
-    router.put("/:title", suscribes.update);
+    router.put("/", suscribes.update);
   
     // Delete a Suscribe with id
     router.delete("/:id", suscribes.delete);
