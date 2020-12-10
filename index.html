@@ -9,28 +9,6 @@
             <link rel="manifest" href="manifest.webmanifest" />
             <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.7.3/localforage.min.js"></script>
             <script asyncsrc="https://cdn.jsdelivr.net/npm/pwacompat@2.0.9/pwacompat.min.js"integrity="sha384-VcI6S+HIsE80FVM1jgbd6WDFhzKYA0PecD/LcIyMQpT4fMJdijBh0I7Iblaacawc"crossorigin="anonymous"></script>
-            <script>
-                if ("serviceWorker" in navigator) {
-                  navigator.serviceWorker
-                    .register("/sw.js")
-                    .then((reg) => {
-                      document.getElementsByClassName('btn').addEventListener('click', (event) => {
-                if(reg.sync) {
-                    reg.sync.register('background-sync')
-                    .catch(function(err) {
-                        return err;
-                    })
-                }
-            })
-                      console.log("votre service worker a été enregistré!");
-                    })
-                    .catch((error) => {
-                      console.error(error);
-                    });
-                } else {
-                  console.warn("Service workers are not supported.");
-                }
-              </script>
             <script type="module" src="./script.js"></script>
         </head>
         <body>
