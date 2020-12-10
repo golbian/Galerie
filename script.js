@@ -58,13 +58,13 @@ function afficher(json){
             });
             var fetchData;
             console.log('online?', navigator.onLine)
-            if (navigator.onLine) {
+            if (navigator.onLine === true) {
               fetch("https://api.imgur.com/3/gallery/hot/viral/0.json")
                 .then((response) =>{
                   return response.json();
                 })
                 .then((res) => {
-                fetchData = localforage.setItem("data", res.data);
+                localforage.setItem("data", res.data);
                 afficher(res.data);
                 })
                 .catch((err) => {
@@ -73,7 +73,9 @@ function afficher(json){
             } else {
               fetchData = localforage.getItem("data");
             }
-            fetchData.then(json => afficher(json))
+            if(fetchData) {
+              fetchData.then(json => afficher(json))
+            }
           });
 
         // fetch("liste.json").then(function(response) {
