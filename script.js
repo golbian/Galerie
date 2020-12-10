@@ -69,7 +69,7 @@ function afficher(json){
                 .catch((err) => {
                   console.log(err);
                 });
-            } else if (navigator.onLine == false) {
+            } else {
               fetchData = localforage.getItem("data");
             }
             fetchData.then((json) => afficher(json));
