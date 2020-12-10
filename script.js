@@ -1,3 +1,5 @@
+import subscribeService from "./subscribe.service";
+
 var html = ""
 
 const dateTimeFormat = Intl.DateTimeFormat("fr");
@@ -33,13 +35,17 @@ function afficher(json){
               a.textContent = "Ajouter en favori";   
               a.addEventListener('click', function(e) {
                   var element = e.target
+                  var favoriToggle = element.classList.toggle("favori")
                   var parent = element.parentNode
                   var data = {
                     src: parent.previousElementSibling.currentSrc,
                     title: parent.textContent,
+                    favori: favoriToggle,
                   }
 
-                  console.log(data)
+                subscribeService.createSubscribe(data).then(response => {
+                  console.log(response)
+                })
               });
       
               colDiv.appendChild(cardDiv);
@@ -71,6 +77,11 @@ function afficher(json){
                   return response.json();
                 })
                 .then((res) => {
+                // var data = {
+                //   src: res.data.images[0].link,
+                //   title: res.data.title,
+                //   favori: false,
+                // }
                 localforage.setItem("data", res.data);
                 afficher(res.data);
                 })
