@@ -32,7 +32,7 @@ function afficher(json){
               a.className = "btn btn-primary";
               a.textContent = "Ajouter en favori";   
               a.addEventListener('click', function(e) {
-                  console.log(e)
+                  console.log(e.parentNode)
               });
       
               colDiv.appendChild(cardDiv);
