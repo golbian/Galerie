@@ -10,6 +10,7 @@ exports.create = (req, res) => {
     return;
   }
   const subscribe = new Subscribe({
+    _id: req.body.id,
     title: req.body.title,
     favori: req.body.favori,
     src: req.body.src,

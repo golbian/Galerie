@@ -2,6 +2,13 @@ import SubscribeService from "./subscribe.service.js";
 
 var html = ""
 
+if(navigator.serviceWorker) {
+  navigator.serviceWorker.register('./serviceworker.js')
+  .then(function() {
+      return navigator.serviceWorker.ready
+  })
+  .then(function(registration) {
+
 const dateTimeFormat = Intl.DateTimeFormat("fr");
 function afficher(json){
   var imageBox = document.getElementById("container")
@@ -32,9 +39,18 @@ function afficher(json){
               h5.textContent = repo.title;
       
               a.className = "btn btn-primary";
-              a.textContent = "Ajouter en favori";   
-              a.addEventListener('click', function(e) {
-                  var element = e.target
+              a.textContent = "Ajouter en favori";  
+              
+              
+                
+              a.addEventListener('click', (event) => {
+                if(registration.sync) {
+                  registration.sync.register('bacground-sync')
+                  .catch(function(err) {
+                      return err;
+                  })
+
+                  var element = event.target
                   var favoriToggle = element.classList.toggle("favori")
                   var parent = element.parentNode
                   var data = {
@@ -57,6 +73,7 @@ function afficher(json){
                       })
                     }
                   })
+                }
               });
       
               colDiv.appendChild(cardDiv);
@@ -68,6 +85,9 @@ function afficher(json){
           }
         }
       }
+
+    })
+  }
 
           document.addEventListener("DOMContentLoaded", function () {
             if (navigator.onLine) {
