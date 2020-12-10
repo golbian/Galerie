@@ -33,8 +33,13 @@ function afficher(json){
               a.textContent = "Ajouter en favori";   
               a.addEventListener('click', function(e) {
                   var element = e.target
-                  var html = element.parentNode
-                  console.log(html)
+                  var parent = element.parentNode
+                  var data = {
+                    src = parent.previousElementSibling.currentSrc,
+                    title = parent.textContent,
+                  }
+
+                  console.log(data)
               });
       
               colDiv.appendChild(cardDiv);
