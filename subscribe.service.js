@@ -2,23 +2,23 @@
 
 class SubscribeServices {
   getAllSubscribe() {
-    return fetch("http://localhost:8080/api/subscribe");
+    return fetch("http://localhost:8081/api/subscribe");
   }
 
   getSubscribe(id) {
-    return fetch(`http://localhost:8080/api/subscribe/${id}`);
+    return fetch(`http://localhost:8081/api/subscribe/${id}`);
   }
 
   createSubscribe(data) {
-    return fetch("http://localhost:8080/api/subscribe", data);
+    return fetch("http://localhost:8081/api/subscribe", data);
   }
 
   updateSubscribe(id, data) {
-    return fetch(`http://localhost:8080/apihttp://localhost:8080/api/subscribe/${id}`, data);
+    return fetch(`http://localhost:8081/api/subscribe/${id}`, data);
   }
 
   deleteSubscribe(id) {
-    return fetch(`http://localhost:8080/api/subscribe/${id}`);
+    return fetch(`http://localhost:8081/api/subscribe/${id}`);
   }
 }
 
