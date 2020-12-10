@@ -37,6 +37,7 @@ function afficher(json){
                   var element = e.target
                   var favoriToggle = element.classList.toggle("favori")
                   var parent = element.parentNode
+                  console.log(parent)
                   var data = {
                     src: parent.previousElementSibling.currentSrc,
                     title: parent.textContent,
