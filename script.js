@@ -43,11 +43,13 @@ function afficher(json){
                     favori: favoriToggle,
                   }
 
+                  console.log(data.src)
+
                   data = JSON.stringify(data);
 
-                SubscribeService.createSubscribe(data).then(response => {
-                  console.log(response)
-                })
+                // SubscribeService.createSubscribe(data).then(response => {
+                //   console.log(response)
+                // })
               });
       
               colDiv.appendChild(cardDiv);
