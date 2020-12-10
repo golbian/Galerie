@@ -12,7 +12,6 @@ class SubscribeServices {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: data,
     });
   }
 
