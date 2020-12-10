@@ -2,7 +2,7 @@ import SubscribeService from "./subscribe.service.js";
 
 var html = ""
 
-var registration = serviceWorkerRegistration.sync;
+var registration = navigator.serviceWorker;
 
 const dateTimeFormat = Intl.DateTimeFormat("fr");
 function afficher(json){
