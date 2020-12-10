@@ -43,7 +43,7 @@ function afficher(json){
                     favori: favoriToggle,
                   }
 
-                  data = JSON.stringify(data);
+                  // data = JSON.stringify(data);
 
                   SubscribeService.updateSubscribe(data).then(response => {
                     console.log(response)
