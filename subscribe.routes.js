@@ -1,22 +1,22 @@
 module.exports = app => {
-    const suscribes = require("./subscribe.controller.js");
+    const subscribes = require("./subscribe.controller.js");
   
     var router = require("express").Router();
   
     // Create a new Suscribe
-    router.post("/", suscribes.create);
+    router.post("/", subscribes.create);
   
     // Retrieve all Grids
-    router.get("/", suscribes.findAll);
+    router.get("/", subscribes.findAll);
   
     // Retrieve a single Suscribe with id
-    router.get("/:title", suscribes.findOne);
+    router.get("/:title", subscribes.findOne);
   
     // Update a Suscribe with id
-    router.put("/", suscribes.update);
+    router.put("/", subscribes.update);
   
     // Delete a Suscribe with id
-    router.delete("/:id", suscribes.delete);
+    router.delete("/:id", subscribes.delete);
   
     app.use('/api/subscribe', router);
   };
