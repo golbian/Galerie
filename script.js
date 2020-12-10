@@ -49,6 +49,7 @@ function afficher(json){
                     console.log(response)
                   }).catch(err => {
                     if(err) {
+                      console.log(err)
                       SubscribeService.createSubscribe(data).then(response => {
                         console.log(response)
                       })
