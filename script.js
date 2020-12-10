@@ -33,7 +33,7 @@ function afficher(json){
               a.textContent = "Ajouter en favori";   
               a.addEventListener('click', function(e) {
                   var element = e.target
-                  var html = element.parentNode.innerHTML
+                  var html = element.parentNode
                   console.log(html)
               });
       
