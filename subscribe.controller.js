@@ -4,6 +4,7 @@ const Subscribe = require("./subscribe.model.js")(mongoose);
 // Create and Save a new Subscribe
 exports.create = (req, res) => {
    // Validate request
+   console.log(req.body)
    if (!req.body) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;

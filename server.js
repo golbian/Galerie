@@ -9,6 +9,8 @@ const app = express();
 // };
 
 app.use(cors());
+// parse requests of content-type - application/json
+app.use(bodyParser.json());
 
 mongoose
   .connect("mongodb://localhost:27017/galerie", {
@@ -23,8 +25,6 @@ mongoose
     process.exit();
   });
 
-// parse requests of content-type - application/json
-app.use(bodyParser.json());
 // simple route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to Galerie." });
