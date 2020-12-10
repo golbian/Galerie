@@ -2,16 +2,10 @@ import SubscribeService from "./subscribe.service.js";
 
 var html = ""
 
-
+var registration = serviceWorkerRegistration.sync;
 
 const dateTimeFormat = Intl.DateTimeFormat("fr");
 function afficher(json){
-  if(navigator.serviceWorker) {
-    navigator.serviceWorker.register('./sw.js')
-    .then(function() {
-        return navigator.serviceWorker.ready
-    })
-    .then(function(registration) {
   var imageBox = document.getElementById("container")
         if(typeof json !== "object") {
           json = JSON.parse(json);
@@ -76,8 +70,6 @@ function afficher(json){
                   })
                 }
               });
-              
-
       
               colDiv.appendChild(cardDiv);
               cardDiv.appendChild(img);
@@ -85,12 +77,10 @@ function afficher(json){
               cardBodyDiv.appendChild(h5);
               cardBodyDiv.appendChild(a);
               imageBox.appendChild(colDiv);
-            }
           }
-        })
+        }
       }
-    }
-      
+
 
           document.addEventListener("DOMContentLoaded", function () {
             if (navigator.onLine) {
