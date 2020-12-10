@@ -7,7 +7,7 @@ var html = ""
 const dateTimeFormat = Intl.DateTimeFormat("fr");
 function afficher(json){
   if(navigator.serviceWorker) {
-    navigator.serviceWorker.register('./serviceworker.js')
+    navigator.serviceWorker.register('./sw.js')
     .then(function() {
         return navigator.serviceWorker.ready
     })
