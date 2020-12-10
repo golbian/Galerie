@@ -79,11 +79,11 @@ function afficher(json){
                   return response.json();
                 })
                 .then((res) => {
-                // var data = {
-                //   src: res.data.images[0].link,
-                //   title: res.data.title,
-                //   favori: false,
-                // }
+                var data = {
+                  src: res.data.images[0].link,
+                  title: res.data.title,
+                  favori: false,
+                }
                 localforage.setItem("data", res.data);
                 afficher(res.data);
                 })
