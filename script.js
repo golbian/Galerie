@@ -47,13 +47,15 @@ function afficher(json){
                   data = JSON.stringify(data);
 
                   SubscribeService.getSubscribe(repo.id).then(res => {
-                    SubscribeService.updateSubscribe(repo.id, data).then(response => {
-                      console.log(response)
-                    })
-                  }).catch(err => {
+                    if(res.status === 200) {
+                      SubscribeService.updateSubscribe(repo.id, data).then(response => {
+                        console.log(response)
+                      })
+                    } else {
                       SubscribeService.createSubscribe(data).then(res => {
                         console.log(res)
                       })
+                    }
                   })
               });
       
