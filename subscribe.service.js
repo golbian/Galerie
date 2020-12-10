@@ -1,24 +1,24 @@
-import http from "../http-common.js";
+// import http from "../http-common.js";
 
 class SubscribeServices {
   getAllSubscribe() {
-    return http.get("/subscribe");
+    return fetch("http://localhost:8080/api/subscribe");
   }
 
   getSubscribe(id) {
-    return http.get(`/subscribe/${id}`);
+    return fetch(`http://localhost:8080/api/subscribe/${id}`);
   }
 
   createSubscribe(data) {
-    return http.post("/subscribe", data);
+    return fetch("http://localhost:8080/api/subscribe", data);
   }
 
   updateSubscribe(id, data) {
-    return http.put(`/subscribe/${id}`, data);
+    return fetch(`http://localhost:8080/apihttp://localhost:8080/api/subscribe/${id}`, data);
   }
 
   deleteSubscribe(id) {
-    return http.delete(`/subscribe/${id}`);
+    return fetch(`http://localhost:8080/api/subscribe/${id}`);
   }
 }
 
