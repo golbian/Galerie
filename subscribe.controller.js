@@ -48,9 +48,9 @@ exports.findAll = (req, res) => {
 
 // Find a single Subscribe with an id
 exports.findOne = (req, res) => {
-    const id = req.params.id;
+    const title = req.params.title;
   
-    Subscribe.findById(id)
+    Subscribe.find({title: title})
       .then(data => {
         if (!data)
           res.status(404).send({ message: "Not found Subscribe with id " + id });
@@ -71,19 +71,17 @@ exports.update = (req, res) => {
       });
     }
   
-    const id = req.params.id;
-  
-    Subscribe.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+    Subscribe.findAndUpdate({title: req.body.title}, req.body, { useFindAndModify: false })
       .then(data => {
         if (!data) {
           res.status(404).send({
-            message: `Cannot update Subscribe with id=${id}. Maybe Subscribe was not found!`
+            message: `Cannot update Subscribe with title=${req.body.title}. Maybe Subscribe was not found!`
           });
         } else res.send({ message: "Subscribe was updated successfully." });
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error updating Subscribe with id=" + id
+          message: "Error updating Subscribe with title=" + req.body.title
         });
       });
   };

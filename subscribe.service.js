@@ -5,8 +5,8 @@ class SubscribeServices {
     return fetch("http://localhost:8081/api/subscribe");
   }
 
-  getSubscribe(id) {
-    return fetch(`http://localhost:8081/api/subscribe/${id}`);
+  getSubscribe(title) {
+    return fetch(`http://localhost:8081/api/subscribe/${title}`);
   }
 
   createSubscribe(data) {
@@ -21,8 +21,8 @@ class SubscribeServices {
     })
   }
 
-  updateSubscribe(id, data) {
-    return fetch(`http://localhost:8081/api/subscribe/${id}`, data);
+  updateSubscribe(data) {
+    return fetch(`http://localhost:8081/api/subscribe/${data.title}`, data);
   }
 
   deleteSubscribe(id) {

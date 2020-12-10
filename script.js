@@ -46,9 +46,13 @@ function afficher(json){
 
                   data = JSON.stringify(data);
 
-                SubscribeService.createSubscribe(data).then(response => {
-                  console.log(response)
-                })
+                  SubscribeService.updateSubscribe(data).then(response => {
+                    console.log(response)
+                  }).catch(err => {
+                    SubscribeService.createSubscribe(data).then(response => {
+                      console.log(response)
+                    })
+                  })
               });
       
               colDiv.appendChild(cardDiv);

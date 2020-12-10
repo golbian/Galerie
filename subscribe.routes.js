@@ -10,10 +10,10 @@ module.exports = app => {
     router.get("/", suscribes.findAll);
   
     // Retrieve a single Suscribe with id
-    router.get("/:id", suscribes.findOne);
+    router.get("/:title", suscribes.findOne);
   
     // Update a Suscribe with id
-    router.put("/:id", suscribes.update);
+    router.put("/:title", suscribes.update);
   
     // Delete a Suscribe with id
     router.delete("/:id", suscribes.delete);
