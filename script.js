@@ -49,11 +49,9 @@ function afficher(json){
                     console.log(response)
                   }).catch(err => {
                     console.log(err)
-                    if(err) {
                       SubscribeService.createSubscribe(data).then(res => {
                         console.log(res)
                       })
-                    }
                   })
               });
       
