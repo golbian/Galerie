@@ -41,9 +41,11 @@ function afficher(json){
                     src: parent.previousElementSibling.currentSrc,
                     title: parent.firstChild.textContent,
                     favori: favoriToggle,
+                    id: repo.id
                   }
 
                   data = JSON.stringify(data);
+                  console.log(data)
 
                   // SubscribeService.updateSubscribe(data).then(response => {
                   //   console.log(response)
@@ -52,11 +54,7 @@ function afficher(json){
                   // })
 
                   SubscribeService.createSubscribe(data).then(res => {
-                    var local = localforage.getItem("data")
-                    local.then(doc => {
-                      const item = doc.find(element => element.title === data.title);
-                      console.log(item)
-                    })
+                    console.log(res)
                   })
               });
       
